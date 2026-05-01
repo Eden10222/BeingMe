@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테스트</title>
+</head>
+<body>
+
+<h2 id="question"></h2>
+<div id="options"></div>
+
+<script>
+const type = new URLSearchParams(location.search).get("type");
+
+const tests = {
+  mbti: [
+    { text: "사람 많은 곳이 좋다", options: [{t:"E"},{t:"I"}] },
+    { text: "혼자가 편하다", options: [{t:"I"},{t:"E"}] }
+  ],
+  love: [
+    { text: "연애하면 올인한다", options: [{t:"F"},{t:"T"}] },
+    { text: "혼자가 편하다", options: [{t:"T"},{t:"F"}] }
+  ],
+  animal: [
+    { text: "강아지 vs 고양이", options: [{t:"dog"},{t:"cat"}] }
+  ]
+};
+
+let qIndex = 0;
+let score = {};
+
+let questions = tests[type];
+
+function show() {
+  let q = questions[qIndex];
+  document.getElementById("question").innerText = q.text;
+
+  let html = "";
+  q.options.forEach((o, i) => {
+    html += `<button onclick="pick('${o.t}')">${o.t}</button><br>`;
+  });
+
+  document.getElementById("options").innerHTML = html;
+}
+
+function pick(t) {
+  score[t] = (score[t] || 0) + 1;
+  qIndex++;
+
+  if (qIndex < questions.length) {
+    show();
+  } else {
+    document.body.innerHTML = "<h1>결과: " + JSON.stringify(score) + "</h1>";
+  }
+}
+
+show();
+</script>
+
+</body>
+</html>
