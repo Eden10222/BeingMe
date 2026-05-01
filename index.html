@@ -3,27 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MBTI 테스트</title>
-  <link rel="stylesheet" href="style.css">
+  <title>심리테스트 모음</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      display: block;
+      color: black;
+      font-size: 18px;
+    }
+
+    .card:hover {
+      background: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
 
-<div id="start">
-  <h1>나의 MBTI 테스트</h1>
-  <button onclick="startTest()">시작하기</button>
-</div>
+<h1>🧠 심리테스트 모음</h1>
 
-<div id="quiz" class="hidden">
-  <h2 id="question"></h2>
-  <div id="options"></div>
-</div>
+<a class="card" href="test.html?type=mbti">MBTI 성격 테스트</a>
+<a class="card" href="test.html?type=love">연애 성향 테스트</a>
+<a class="card" href="test.html?type=animal">동물 성격 테스트</a>
 
-<div id="result" class="hidden">
-  <h2 id="resultType"></h2>
-  <p id="resultDesc"></p>
-  <button onclick="restart()">다시하기</button>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
