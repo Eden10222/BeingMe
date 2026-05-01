@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>결과</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="result-box">
+  <h1 id="title"></h1>
+  <p id="desc"></p>
+
+  <button onclick="copyLink()">링크 복사</button>
+  <br><br>
+  <a href="index.html">처음으로</a>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const type = params.get("type");
+
+const results = {
+  A: {
+    title: "🐱 고양이형",
+    desc: "조용하고 독립적인 스타일"
+  },
+  B: {
+    title: "🐶 강아지형",
+    desc: "활발하고 사교적인 스타일"
+  }
+};
+
+document.getElementById("title").innerText = results[type].title;
+document.getElementById("desc").innerText = results[type].desc;
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  alert("복사됨!");
+}
+</script>
+
+</body>
+</html>
