@@ -19,8 +19,8 @@ let current = 0;
 let score = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
 
 function startTest() {
-  document.getElementById("start").classList.add("hidden");
-  document.getElementById("quiz").classList.remove("hidden");
+  document.getElementById("start").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
   showQuestion();
 }
 
@@ -50,8 +50,8 @@ function answer(i) {
 }
 
 function showResult() {
-  document.getElementById("quiz").classList.add("hidden");
-  document.getElementById("result").classList.remove("hidden");
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("result").style.display = "block";
 
   let result =
     (score.E > score.I ? "E" : "I") +
@@ -67,6 +67,6 @@ function restart() {
   current = 0;
   score = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
 
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("start").classList.remove("hidden");
+  document.getElementById("result").style.display = "none";
+  document.getElementById("start").style.display = "block";
 }
