@@ -25,7 +25,7 @@ function answer(type) {
     showQuestion();
   } else {
     let result = score.A > score.B ? "A" : "B";
-    location.href = `result.html?type=${result}`;
+    location.href = `result.html?type=${result}&test=${testName}`;
   }
 }
 
