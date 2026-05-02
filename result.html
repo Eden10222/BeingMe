@@ -1,37 +1,12 @@
 const params = new URLSearchParams(location.search);
-const type = params.get("type");
-const test = params.get("test");
+const testName = params.get("test");
+const resultIndex = params.get("result");
 
-const resultsData = {
+fetch("quiz.js")
+  .then(() => {
+    const testData = data[testName];
+    const result = testData.results[resultIndex];
 
-  animal: {
-    A: { title: "🐱 고양이형", desc: "독립적이고 조용함" },
-    B: { title: "🐶 강아지형", desc: "활발하고 사교적" }
-  },
-
-  love: {
-    A: { title: "❤️ 직진형", desc: "좋으면 바로 표현" },
-    B: { title: "💭 신중형", desc: "천천히 다가감" }
-  },
-
-  mbti: {
-    A: { title: "🔥 외향형", desc: "사람 좋아함" },
-    B: { title: "🌿 내향형", desc: "혼자가 편함" }
-  },
-
-  job: {
-    A: { title: "💼 리더형", desc: "팀을 이끄는 스타일" },
-    B: { title: "🧠 전문가형", desc: "깊이 파는 스타일" }
-  },
-
-  stress: {
-    A: { title: "💣 폭발형", desc: "쌓이다 터짐" },
-    B: { title: "😶 참는형", desc: "속으로 삭임" }
-  }
-
-};
-
-const result = resultsData[test][type];
-
-document.getElementById("title").innerText = result.title;
-document.getElementById("desc").innerText = result.desc;
+    document.getElementById("title").innerText = result.title;
+    document.getElementById("desc").innerText = result.desc;
+  });
