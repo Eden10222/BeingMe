@@ -1,8 +1,17 @@
+<body>
+
+<div class="result-box">
+  <h1 id="title"></h1>
+  <p id="desc"></p>
+</div>
+
+<script src="quiz.js"></script>
+
+<script>
 const params = new URLSearchParams(location.search);
 const testName = params.get("test");
 const resultIndex = params.get("result");
 
-// data는 quiz.js에서 가져옴
 const testData = data[testName];
 
 if (!testData) {
@@ -14,4 +23,6 @@ if (!testData) {
   document.getElementById("title").innerText = result.title;
   document.getElementById("desc").innerText = result.desc;
 }
-<script src="quiz.js"></script>
+</script>
+
+</body>
