@@ -1,29 +1,36 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Arial';
+  background: #f5f7fb;
   max-width: 500px;
   margin: auto;
   text-align: center;
 }
 
-/* 제목 */
 .title {
-  margin: 20px 0;
+  margin: 20px;
 }
 
-/* 카드 영역 */
-.container {
-  display: flex;
-  flex-direction: column;
+/* 카드 그리드 */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
+  padding: 10px;
 }
 
 /* 카드 */
 .card {
-  text-decoration: none;
-  color: black;
+  background: white;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .card img {
@@ -31,23 +38,26 @@ body {
 }
 
 .card h2 {
-  padding: 10px;
-}
-
-/* 질문/결과 박스 */
-.quiz-box, .result-box {
-  margin-top: 100px;
-}
-
-/* 버튼 */
-button {
-  display: block;
-  width: 80%;
-  margin: 10px auto;
   padding: 15px;
-  border-radius: 10px;
+}
+
+/* 퀴즈 */
+.quiz-box {
+  margin-top: 80px;
+}
+
+button {
+  width: 85%;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 12px;
   border: none;
-  background: #333;
+  background: #4a6cf7;
   color: white;
   font-size: 16px;
+}
+
+/* 결과 */
+.result-box {
+  margin-top: 80px;
 }
