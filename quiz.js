@@ -1,8 +1,8 @@
 let current = 0;
 let score = 0;
 
-// 테스트별 질문 + 결과
-const data = { ... }
+// 테스트 데이터
+const data = {
 
   animal: {
     questions: [
@@ -121,24 +121,29 @@ const data = { ... }
 
 };
 
-// 현재 테스트 가져오기
-const test = data[testName];
-const questions = test.questions;
+// quiz 페이지에서만 실행
+if (typeof testName !== "undefined") {
 
-function showQuestion() {
-  document.getElementById("question").innerText = questions[current];
-}
+  const test = data[testName];
+  const questions = test.questions;
 
-function answer(type) {
-  if (type === "A") score++;
-  current++;
-
-  if (current < questions.length) {
-    showQuestion();
-  } else {
-    const index = Math.min(Math.floor(score), 7);
-    location.href = `result.html?test=${testName}&result=${index}`;
+  function showQuestion() {
+    const el = document.getElementById("question");
+    if (!el) return;
+    el.innerText = questions[current];
   }
-}
 
-showQuestion();
+  window.answer = function(type) {
+    if (type === "A") score++;
+    current++;
+
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      const index = Math.min(score, 7);
+      location.href = `result.html?test=${testName}&result=${index}`;
+    }
+  }
+
+  showQuestion();
+}
