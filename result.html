@@ -2,11 +2,15 @@ const params = new URLSearchParams(location.search);
 const testName = params.get("test");
 const resultIndex = params.get("result");
 
-fetch("quiz.js")
-  .then(() => {
-    const testData = data[testName];
-    const result = testData.results[resultIndex];
+// data는 quiz.js에서 가져옴
+const testData = data[testName];
 
-    document.getElementById("title").innerText = result.title;
-    document.getElementById("desc").innerText = result.desc;
-  });
+if (!testData) {
+  document.getElementById("title").innerText = "오류 발생";
+  document.getElementById("desc").innerText = "testName 확인 필요";
+} else {
+  const result = testData.results[resultIndex];
+
+  document.getElementById("title").innerText = result.title;
+  document.getElementById("desc").innerText = result.desc;
+}
