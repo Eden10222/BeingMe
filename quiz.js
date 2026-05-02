@@ -2,7 +2,7 @@ let current = 0;
 let score = 0;
 
 // 테스트별 질문 + 결과
-const data = {
+const data = { ... }
 
   animal: {
     questions: [
