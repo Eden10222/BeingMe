@@ -61,3 +61,72 @@ button {
 .result-box {
   margin-top: 80px;
 }
+.result-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.result-card {
+  background: white;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* 상단 뱃지 */
+.badge {
+  display: inline-block;
+  background: #ff7eb3;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* 타이틀 */
+.result-card h1 {
+  font-size: 26px;
+  margin: 10px 0;
+}
+
+/* 구분선 */
+.divider {
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(45deg,#667eea,#764ba2);
+  margin: 15px auto;
+  border-radius: 10px;
+}
+
+/* 설명 */
+.result-card p {
+  white-space: pre-line;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+/* 공유 버튼 */
+.share-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg,#ff7eb3,#ff758c);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* 다시하기 */
+.retry-btn {
+  display: block;
+  margin-top: 15px;
+  color: #555;
+  text-decoration: none;
+}
