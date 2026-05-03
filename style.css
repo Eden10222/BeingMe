@@ -1,119 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap');
-
 body {
-  font-family: 'Pretendard', sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #333;
-}
-
-/* 상단 */
-.hero {
-  text-align: center;
-  padding: 50px 20px;
+  font-family: sans-serif;
   color: white;
+  background: linear-gradient(135deg,#3a0ca3,#4361ee,#f72585);
 }
 
-.hero h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  opacity: 0.9;
-}
-
-/* CTA 버튼 */
-.cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  border-radius: 30px;
-  background: linear-gradient(45deg, #ff7eb3, #ff758c);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-/* 카드 그리드 */
+/* 카드 */
 .grid {
   display: grid;
   gap: 20px;
   padding: 20px;
 }
 
-/* 카드 */
 .card {
-  background: white;
-  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
   padding: 20px;
-  text-decoration: none;
-  color: black;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: 0.25s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
 }
 
 /* 퀴즈 */
 .quiz-box {
   max-width: 500px;
   margin: 80px auto;
-  background: white;
+  background: rgba(0,0,0,0.4);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-/* 진행바 */
-#progress {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #777;
-}
-
-/* 질문 */
-#question {
-  font-size: 20px;
-  margin: 20px 0;
-}
-
-/* 버튼 */
-button {
-  width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  transform: scale(1.03);
 }
 
 /* 결과 */
-.result-box {
+.result-card {
   max-width: 500px;
   margin: 80px auto;
-  background: white;
   padding: 30px;
+  background: rgba(0,0,0,0.6);
   border-radius: 20px;
-  text-align: center;
-}
-
-.result-box h1 {
-  font-size: 26px;
-}
-
-.result-box p {
-  margin: 20px 0;
 }
