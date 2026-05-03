@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>🌌 심리테스트</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🌌 나를 찾는 우주 테스트</h1>
+<h1>🔮 심리 테스트</h1>
 
-<div class="grid" id="list"></div>
+<div class="grid">
 
-<script src="data.js"></script>
+<a href="quiz.html?test=inner" class="card">
+<img src="img/inner.jpg">
+<h2>내면세계 테스트</h2>
+</a>
 
-<script>
-const container = document.getElementById("list");
+<a href="quiz.html?test=energy" class="card">
+<img src="img/energy.jpg">
+<h2>에너지 유형 테스트</h2>
+</a>
 
-Object.keys(data).forEach(key => {
-  const t = data[key];
+<a href="quiz.html?test=unconscious" class="card">
+<img src="img/unconscious.jpg">
+<h2>무의식 테스트</h2>
+</a>
 
-  container.innerHTML += `
-    <a href="quiz.html?test=${key}" class="card">
-      <h2>${t.title}</h2>
-      <p>✨ 지금 바로 확인</p>
-    </a>
-  `;
-});
-</script>
+</div>
 
 </body>
 </html>
