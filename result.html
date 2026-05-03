@@ -7,41 +7,22 @@
 </head>
 <body>
 
-<div class="result-container">
-
-  <div class="result-card">
-
-    <div class="badge">🔍 당신의 결과</div>
-
-    <h1 id="title"></h1>
-
-    <div class="divider"></div>
-
-    <p id="desc"></p>
-
-    <button class="share-btn" onclick="copyLink()">🔥 결과 공유하기</button>
-    <a href="index.html" class="retry-btn">다른 테스트 하기</a>
-
-  </div>
-
+<div class="result-card">
+  <h1 id="title"></h1>
+  <p id="desc"></p>
 </div>
 
-<script src="quiz.js"></script>
+<script src="data.js"></script>
 
 <script>
 const params = new URLSearchParams(location.search);
-const testName = params.get("test");
-const resultIndex = params.get("result");
+const test = params.get("test");
+const result = params.get("result");
 
-const result = data[testName].results[resultIndex];
+const r = data[test].results[result];
 
-document.getElementById("title").innerText = result.title;
-document.getElementById("desc").innerText = result.desc;
-
-function copyLink() {
-  navigator.clipboard.writeText(window.location.href);
-  alert("링크 복사됨 🔥 친구에게 공유해보세요");
-}
+document.getElementById("title").innerText = r.title;
+document.getElementById("desc").innerText = r.desc;
 </script>
 
 </body>
