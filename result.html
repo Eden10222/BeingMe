@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>결과</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="result-card">
-  <h1 id="title"></h1>
-  <p id="desc"></p>
+<img id="result-img">
+<h1 id="title"></h1>
+<p id="desc"></p>
 </div>
 
 <script src="data.js"></script>
 
 <script>
 const params = new URLSearchParams(location.search);
-const test = params.get("test");
-const result = params.get("result");
+const t = params.get("test");
+const r = params.get("result");
 
-const r = data[test].results[result];
+const result = data[t].results[r];
 
-document.getElementById("title").innerText = r.title;
-document.getElementById("desc").innerText = r.desc;
+document.getElementById("title").innerText = result.title;
+document.getElementById("desc").innerText = result.desc;
+document.getElementById("result-img").src = result.img;
 </script>
 
 </body>
