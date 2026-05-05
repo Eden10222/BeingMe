@@ -1,147 +1,105 @@
-const data = {
+const questions = [
+  {
+    q: "연인이 연락이 늦으면?",
+    a: [
+      { text: "계속 확인한다", type: "A" },
+      { text: "기다린다", type: "B" },
+      { text: "나도 신경 안쓴다", type: "C" },
+      { text: "관심 없다", type: "D" }
+    ]
+  },
+  {
+    q: "싸우면?",
+    a: [
+      { text: "바로 풀고싶다", type: "A" },
+      { text: "대화로 해결", type: "B" },
+      { text: "거리 둔다", type: "C" },
+      { text: "무시한다", type: "D" }
+    ]
+  },
+  {
+    q: "연애에서 중요한건?",
+    a: [
+      { text: "애정", type: "A" },
+      { text: "신뢰", type: "B" },
+      { text: "자유", type: "C" },
+      { text: "편안함", type: "D" }
+    ]
+  },
+  {
+    q: "SNS는?",
+    a: [
+      { text: "자주 확인", type: "A" },
+      { text: "가끔 본다", type: "B" },
+      { text: "거의 안봄", type: "C" },
+      { text: "관심 없음", type: "D" }
+    ]
+  },
+  {
+    q: "연인이 바쁘면?",
+    a: [
+      { text: "서운하다", type: "A" },
+      { text: "이해한다", type: "B" },
+      { text: "나도 바쁘게", type: "C" },
+      { text: "신경 안씀", type: "D" }
+    ]
+  },
+  {
+    q: "데이트는?",
+    a: [
+      { text: "자주 만나야", type: "A" },
+      { text: "적당히", type: "B" },
+      { text: "가끔", type: "C" },
+      { text: "상관 없음", type: "D" }
+    ]
+  },
+  {
+    q: "연애 스타일은?",
+    a: [
+      { text: "상대 중심", type: "A" },
+      { text: "균형", type: "B" },
+      { text: "내 중심", type: "C" },
+      { text: "무심", type: "D" }
+    ]
+  },
+  {
+    q: "이별 후?",
+    a: [
+      { text: "오래 힘듦", type: "A" },
+      { text: "시간 지나 회복", type: "B" },
+      { text: "빨리 털어냄", type: "C" },
+      { text: "영향 없음", type: "D" }
+    ]
+  }
+];
 
-inner: {
-title: "내면세계 테스트",
-image: "https://picsum.photos/600/400?random=1",
+let current = 0;
+let scores = { A:0, B:0, C:0, D:0 };
 
-questions: [
-"나는 혼자 있을 때 더 편안하다",
-"나는 감정의 이유를 생각해보는 편이다",
-"나는 내 생각을 깊이 탐구한다",
-"나는 타인의 감정에 영향을 받는다",
-"나는 의미 없는 일에 흥미가 없다",
-"나는 직감이 강한 편이다",
-"나는 내 감정을 분석하려 한다",
-"나는 조용한 환경을 선호한다",
-"나는 나 자신을 이해하고 싶다",
-"나는 감정보다 의미를 중요하게 본다",
-"나는 혼자 상상하는 시간이 많다",
-"나는 나의 내면을 중요하게 생각한다"
-],
-
-results: [
-
-{
-title: "🌌 심층 탐구형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "당신은 내면을 깊이 탐구하는 유형입니다\n겉보다 속을 중요하게 생각합니다\n자기 이해 욕구가 강합니다\n사람보다 의미를 먼저 봅니다\n철학적 사고가 강한 편입니다"
-},
-
-{
-title: "💫 감정 공명형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "당신은 감정과 공감이 중심인 유형입니다\n타인의 감정을 잘 느낍니다\n관계 속에서 의미를 찾습니다\n따뜻하고 섬세한 성향입니다\n사람과 연결되는 것을 중요하게 생각합니다"
-},
-
-{
-title: "🧠 분석 사색형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "당신은 사고와 분석이 중심입니다\n감정보다 구조를 이해하려 합니다\n논리적인 접근을 선호합니다\n객관적인 시각이 강합니다\n깊이 있는 사고를 즐깁니다"
-},
-
-{
-title: "✨ 직관 흐름형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "당신은 직관과 흐름을 따르는 유형입니다\n느낌을 중요하게 생각합니다\n즉흥적인 선택을 합니다\n자유로운 사고를 가졌습니다\n창의적인 감각이 뛰어납니다"
+function startTest() {
+  showQuestion();
 }
 
-]
-},
+function showQuestion() {
+  const q = questions[current];
+  let html = `<h2>${q.q}</h2>`;
 
-energy: {
-title: "에너지 유형 테스트",
-image: "https://picsum.photos/600/400?random=1",
+  q.a.forEach(ans => {
+    html += `<button onclick="selectAnswer('${ans.type}')">${ans.text}</button>`;
+  });
 
-questions: [
-"나는 사람들과 있을 때 에너지를 얻는다",
-"나는 혼자 있으면 회복된다",
-"나는 활동적인 것을 좋아한다",
-"나는 조용한 시간을 필요로 한다",
-"나는 새로운 사람 만나는 걸 좋아한다",
-"나는 깊은 대화를 선호한다",
-"나는 쉽게 지치는 편이다",
-"나는 에너지가 넘치는 편이다",
-"나는 상황에 따라 달라진다",
-"나는 혼자만의 시간이 필요하다",
-"나는 사람들과 오래 있어도 괜찮다",
-"나는 감정 소모가 큰 편이다"
-],
-
-results: [
-
-{
-title: "🔥 외향 에너지형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "사람들과 함께 있을 때 에너지가 올라갑니다\n활동적이고 적극적인 성향입니다\n새로운 자극을 좋아합니다\n사교적인 관계를 즐깁니다\n외부 세계에서 힘을 얻습니다"
-},
-
-{
-title: "🌙 내향 충전형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "혼자 있는 시간이 에너지의 원천입니다\n조용한 환경을 선호합니다\n깊은 사고를 합니다\n자기만의 시간이 중요합니다\n내면에서 힘을 얻습니다"
-},
-
-{
-title: "⚖️ 균형 조절형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "상황에 따라 에너지를 조절합니다\n외향과 내향의 균형이 있습니다\n유연한 성향을 가졌습니다\n환경 적응력이 뛰어납니다\n균형 잡힌 생활을 합니다"
-},
-
-{
-title: "🌊 감정 소모형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "감정에 따라 에너지가 크게 변합니다\n사람과 상황에 영향을 받습니다\n공감 능력이 높은 편입니다\n에너지 관리가 중요합니다\n휴식이 반드시 필요합니다"
+  document.querySelector('.container').innerHTML = html;
 }
 
-]
-},
+function selectAnswer(type) {
+  scores[type]++;
+  current++;
 
-unconscious: {
-title: "무의식 테스트",
-image: "https://picsum.photos/600/400?random=1",
-
-questions: [
-"나는 이유 없이 끌리는 선택이 있다",
-"나는 반복되는 행동이 있다",
-"나는 설명하기 어려운 감정을 느낀다",
-"나는 특정 상황에서 같은 반응을 한다",
-"나는 직감적으로 결정을 내린다",
-"나는 꿈을 자주 기억한다",
-"나는 과거 경험이 영향을 준다",
-"나는 설명할 수 없는 불안이 있다",
-"나는 어떤 사람에게 끌린다",
-"나는 나도 모르게 행동한다",
-"나는 감정을 숨기는 편이다",
-"나는 나 자신도 이해하기 어렵다"
-],
-
-results: [
-
-{
-title: "🕳 무의식 지배형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "무의식의 영향이 강한 유형입니다\n이유 없는 선택이 많습니다\n감정이 행동을 이끕니다\n내면 탐구가 필요합니다\n자기 이해가 중요합니다"
-},
-
-{
-title: "🔍 자각 탐색형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "무의식을 이해하려는 유형입니다\n자기 분석을 합니다\n감정의 이유를 찾습니다\n성찰적인 성향입니다\n성장이 빠른 편입니다"
-},
-
-{
-title: "⚙️ 통제 의식형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "의식이 강하게 작용하는 유형입니다\n자신을 통제하려 합니다\n논리적 판단을 합니다\n감정을 조절합니다\n안정적인 선택을 합니다"
-},
-
-{
-title: "🌌 혼합 흐름형",
-img: "https://picsum.photos/600/400?random=1",
-desc: "의식과 무의식이 함께 작용합니다\n상황에 따라 달라집니다\n직관과 논리를 모두 사용합니다\n유연한 사고를 가졌습니다\n균형 있는 성향입니다"
+  if(current < questions.length){
+    showQuestion();
+  } else {
+    const result = Object.keys(scores).reduce((a,b)=> scores[a]>scores[b]?a:b);
+    localStorage.setItem("result", result);
+    location.href = "result.html";
+  }
 }
-
-]
-}
-
-};
