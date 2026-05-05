@@ -2,26 +2,40 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>결과</title>
+  <title>💘 연애패턴 테스트 결과</title>
   <link rel="stylesheet" href="style.css">
 
+  <!-- 카카오 SDK -->
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>
-    Kakao.init('YOUR_APP_KEY');
+    Kakao.init('YOUR_APP_KEY'); // 👉 본인 앱키 넣기
   </script>
 </head>
+
 <body>
 
 <div class="container">
+
+  <!-- 결과 타이틀 -->
   <h1 id="title"></h1>
+
+  <!-- 결과 이미지 표시 (핵심🔥) -->
+  <img id="result-img" style="width:100%; border-radius:15px; margin-bottom:20px;">
+
+  <!-- 캔버스 (이미지 생성용, 숨김) -->
   <canvas id="canvas" width="1080" height="1080" style="display:none;"></canvas>
+
+  <!-- 설명 -->
   <p id="desc"></p>
 
-  <button onclick="downloadImage()">📥 이미지 저장</button>
-  <button onclick="shareKakao()">📤 카카오 공유</button>
+  <!-- 버튼 -->
+  <button onclick="downloadImage()">📥 결과 이미지 저장</button>
+  <button onclick="shareKakao()">📤 카카오톡 공유</button>
   <button onclick="location.href='index.html'">🔄 다시 하기</button>
+
 </div>
 
 <script src="result.js"></script>
+
 </body>
 </html>
